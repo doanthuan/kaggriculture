@@ -13,3 +13,8 @@ logs/
 .env.*
 *.zip
 *.tar.gz
+
+# Public agents without a stated license: local evaluation only
+agents/public/boatlee_v16rc5.py
+agents/public/kaito_v27.py
+agents/public/kaito_v48.py

@@ -12,7 +12,7 @@ uv sync
 
 ## Develop
 
-Edit `main.py` and implement `agent(obs)`. Each call receives the current observation and returns actions for the farmer, hired hands, and market. The included agent always passes; it verifies the entry point but will not earn income.
+Edit `main.py` and implement `agent(obs)`. Each call receives the current observation and returns actions for the farmer, hired hands, and market. `main.py` currently holds prvsiyan's public Apache-2.0 agent, [Kaggriculture Frontier | The Moon Counts Melons](https://www.kaggle.com/code/prvsiyan/kaggriculture-frontier-the-moon-counts-melons). Its license and notice are in `LICENSE` and `NOTICE.txt`. Our own earlier agents are frozen in `agents/`, and the public opponent pool is in `agents/public/` (see its README).
 
 Run a complete local game against the built-in random agent:
 
@@ -20,10 +20,19 @@ Run a complete local game against the built-in random agent:
 uv run python scripts/smoke_test.py
 ```
 
-Submit the single-file agent after joining the competition and configuring Kaggle authentication:
+Measure win rate against the public opponent pool:
 
 ```sh
-uv run kaggle competitions submit kaggriculture -f main.py -m "First agent"
+uv run python tools/eval.py main.py agents/public/*.py -n 25 --seed0 9100 -j 11
 ```
+
+Submit an archive that keeps the license and notice with the agent:
+
+```sh
+tar -czf submission.tar.gz main.py LICENSE NOTICE.txt
+uv run kaggle competitions submit kaggriculture -f submission.tar.gz -m "Melons baseline"
+```
+
+The team shares one submission queue, and each new upload pushes out the older active submission. Check with your teammate before uploading.
 
 Competition downloads, replays, logs, and local credentials are ignored by Git. Keep `uv.lock` committed so the local toolchain stays reproducible.
