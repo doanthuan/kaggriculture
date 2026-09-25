@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+
+# Competition downloads, replays, and local credentials
+data/
+replays/
+logs/
+.env
+.env.*
+*.zip
+*.tar.gz
