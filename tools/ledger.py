@@ -5,23 +5,21 @@
 
 import argparse
 import collections
-import importlib.util
-import uuid
 
 import kaggle_environments.envs.kaggriculture.kaggriculture as K
 from kaggle_environments import make
+from kaggle_environments.agent import get_last_callable
 
 KEYS = ["SELL_EGG", "SELL_FERTILIZER", "SELL_WHEAT", "BUY_PRODUCT_WHEAT", "BUY_PRODUCT_FERTILIZER",
         "BUY_ANIMAL_GOOSE", "BUY_SEED_WHEAT", "HIRE", "LAND"]
 
 
 def load(path):
+    """Load an agent the way the Kaggle runner does: the last callable in the file."""
     if path in ("starter", "random"):
         return path
-    spec = importlib.util.spec_from_file_location("a_" + uuid.uuid4().hex, path)
-    m = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(m)
-    return m.agent
+    with open(path) as f:
+        return get_last_callable(f.read(), path=path)
 
 
 LED = [collections.Counter(), collections.Counter()]

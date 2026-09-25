@@ -3,27 +3,27 @@
     uv run python tools/eval.py main.py agents/v5.py starter -n 50
 
 Each opponent plays n seeds (from --seed0) in both seats. Draws count 0.5.
-Agents are loaded fresh per match so module-level state is never shared.
+Agents are loaded fresh per match, with Kaggle's last-callable rule, so module-level
+state is never shared and the entry point matches the ladder.
 """
 
 import argparse
-import importlib.util
 import math
 import os
 import statistics
-import uuid
 from concurrent.futures import ProcessPoolExecutor
+
+from kaggle_environments.agent import get_last_callable
 
 BUILTIN = {"starter", "random"}
 
 
 def load(path):
+    """Load an agent the way the Kaggle runner does: the last callable in the file."""
     if path in BUILTIN:
         return path
-    spec = importlib.util.spec_from_file_location("a_" + uuid.uuid4().hex, path)
-    m = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(m)
-    return m.agent
+    with open(path) as f:
+        return get_last_callable(f.read(), path=path)
 
 
 def play(job):
