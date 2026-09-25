@@ -56,3 +56,19 @@ Same seeds and settings, rerun only for the five opponents whose entry point cha
 | Kaito v27 | 100 | 114,785 | 84,230 |
 | Kaito v48 | 100 | 108,137 | 79,287 |
 | tetsutani demand | **6** | 96,666 | 98,339 |
+
+## Round-robin with the corrected loader, 2026-09-25
+
+Seven agents, seeds 9100–9124, both seats, 50 matches per pair. Each cell is the row agent's win % against the column agent. The full output is in `logs/roundrobin.txt`.
+
+| Row vs column | tetsutani | Ledger V68 | 2965 hybrid | Melons | shiiin9 | V57 | C95 | Mean |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **tetsutani** | — | 70 | 90 | 94 | 92 | 90 | 100 | **89.3** |
+| Ledger V68 | 30 | — | 46 | 66 | 86 | 84 | 100 | 68.7 |
+| 2965 hybrid | 10 | 54 | — | 70 | 84 | 88 | 100 | 67.7 |
+| Melons | 6 | 34 | 30 | — | 86 | 92 | 100 | 58.0 |
+| shiiin9 | 8 | 14 | 16 | 14 | — | 60 | 100 | 35.3 |
+| V57 | 10 | 16 | 12 | 8 | 40 | — | 100 | 31.0 |
+| C95 | 0 | 0 | 0 | 0 | 0 | 0 | — | 0.0 |
+
+Banks among the top six are all within about $2k of each other (95–99k). C95 banks about 74k.
