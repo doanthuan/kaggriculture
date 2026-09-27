@@ -1,12 +1,17 @@
-Kaggriculture submission: tetsutani "Demand-Preserving Turn Sale Timing", unchanged. Apache-2.0.
+Kaggriculture submission: tetsutani "Demand-Preserving Turn Sale Timing" with two constants changed. Apache-2.0.
 
 Source: https://www.kaggle.com/code/tetsutani/demand-preserving-turn-sale-timing
-main.py SHA-256: 127ed3e62988c0474d386db6527ae8ca9de9bb1fe7004128557ddef67126c652 (byte-identical to the notebook output, downloaded 2026-09-25)
+Upstream main.py SHA-256: 127ed3e62988c0474d386db6527ae8ca9de9bb1fe7004128557ddef67126c652
+This main.py SHA-256:     a9788f1a1adb04bbe78cb0b5bb5d662b0d9e6241f32d0afe9910b23e7ea614b4
 
-main.py is redistributed unmodified. Every upstream Apache-2.0 notice and the full
-license text are retained byte-for-byte at the top of main.py. The lineage credited there
-includes tetsu2131 (tetsutani), Ahmed Berat Ozer (V25-V55 series), thomastschinkel
-(v9 layers), yhay81 (shop-router action tapes and routing), prvsiyan, aurax7,
-destbreso and Dmitrii Gluzdov.
+Modification (2026-09-27, Doan Thuan): three lines appended at the end of main.py set
+V9_RACE_DEFAULT = 48 and V9_RACE_MAX = 48 (upstream 44 and 48), so the v9 race layer
+reserves planned premium sales 48 turns ahead. The rest of the file is byte-identical to
+the upstream output.
+
+Every upstream Apache-2.0 notice and the full license text are retained byte-for-byte at
+the top of main.py. The lineage credited there includes tetsu2131 (tetsutani), Ahmed Berat
+Ozer (V25-V55 series), thomastschinkel (v9 layers), yhay81 (shop-router action tapes and
+routing), prvsiyan, aurax7, destbreso and Dmitrii Gluzdov.
 
 The game engine is Kaggle's kaggle-environments (Apache-2.0).

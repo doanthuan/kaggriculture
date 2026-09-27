@@ -7480,3 +7480,8 @@ import collections as _ig_coll
 ig_agent.telemetry = _ig_coll.ChainMap(_IG_REPORT, _IG_PARENT.telemetry)
 cha20_entry_agent = ig_agent
 kaggle_agent = cha20_entry_agent
+
+
+# race-depth variant
+V9_RACE_DEFAULT = 48
+V9_RACE_MAX = 48
