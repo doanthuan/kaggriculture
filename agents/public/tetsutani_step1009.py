@@ -10135,7 +10135,3 @@ def step1009_step1008_fortyfirst_final_fixedsell_closure_agent(observation,confi
 step1009_step1008_fortyfirst_final_fixedsell_closure_agent.telemetry=_S1009_REPORT
 agent=step1009_step1008_fortyfirst_final_fixedsell_closure_agent
 kaggle_submission_agent=agent
-
-
-# sale look-ahead variant
-_S809_LOOK = 12

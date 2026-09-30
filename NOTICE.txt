@@ -1,17 +1,19 @@
-Kaggriculture submission: tetsutani "Demand-Preserving Turn Sale Timing" with two constants changed. Apache-2.0.
+Kaggriculture submission: tetsutani "Demand-Preserving Turn Sale Timing" (step1009 build) with one sale look-ahead constant changed. Apache-2.0.
 
-Source: https://www.kaggle.com/code/tetsutani/demand-preserving-turn-sale-timing
-Upstream main.py SHA-256: 127ed3e62988c0474d386db6527ae8ca9de9bb1fe7004128557ddef67126c652
-This main.py SHA-256:     a9788f1a1adb04bbe78cb0b5bb5d662b0d9e6241f32d0afe9910b23e7ea614b4
+Source: https://www.kaggle.com/code/tetsutani/demand-preserving-turn-sale-timing (version run 2026-09-28)
+Upstream main.py SHA-256: 55be5d5f124c8daaaa63c1a29ba4aab096004909666f04748007603c67b7d2a8
+This main.py SHA-256:     b655b082aea877c7cbff316dcea77adafb4ec64a7d0e989ab02b114b679e3318
 
-Modification (2026-09-27, Doan Thuan): three lines appended at the end of main.py set
-V9_RACE_DEFAULT = 48 and V9_RACE_MAX = 48 (upstream 44 and 48), so the v9 race layer
-reserves planned premium sales 48 turns ahead. The rest of the file is byte-identical to
-the upstream output.
+Modification (2026-09-30, Doan Thuan): lines appended at the end of main.py set
+  _S809_LOOK = 12
+These widen the upstream "ready-stock sale advance" layers (step738, step809), which sell
+already-stocked premium goods that the route plans to sell within the next few turns.
+Upstream values: _S738_LOOK = 4, _S809_LOOK = 3. The rest of the file is byte-identical
+to the upstream output.
 
-Every upstream Apache-2.0 notice and the full license text are retained byte-for-byte at
-the top of main.py. The lineage credited there includes tetsu2131 (tetsutani), Ahmed Berat
-Ozer (V25-V55 series), thomastschinkel (v9 layers), yhay81 (shop-router action tapes and
-routing), prvsiyan, aurax7, destbreso and Dmitrii Gluzdov.
+Every upstream Apache-2.0 notice and the full license text are retained byte-for-byte in
+main.py. The lineage credited there includes tetsu2131 (tetsutani), Ahmed Berat Ozer
+(V25-V57 series), thomastschinkel (v9 layers), yhay81 (shop-router tapes and routing),
+prvsiyan, aurax7, destbreso, Dmitrii Gluzdov and the other authors named in the file.
 
 The game engine is Kaggle's kaggle-environments (Apache-2.0).

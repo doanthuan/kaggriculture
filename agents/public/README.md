@@ -25,6 +25,7 @@ uv run python tools/eval.py main.py agents/public/*.py -n 25 --seed0 9100 -j 11
 | `shiiin9_orderbook.py` | shiiin9/your-market-list-is-an-order-book | Apache-2.0 | `a16e0e9b40c4` |
 | `haodou_ledger_v68.py` | haodou092/kaggriculture-harvest-ledger | Apache-2.0 | `3b5436114489` |
 | `rayk_c95.py` | raykkretzschmar/kaggriculture-findings-from-zero-to-top-meta (C95) | none stated | `489f5d197527` |
+| `tetsutani_step1009.py` | tetsutani/demand-preserving-turn-sale-timing (version run 2026-09-28; the updated 2965 hybrid, Master Engine V4, TTV1, Farmer John idle-seller and Harvest Ledger play identically) | Apache-2.0 | `55be5d5f124c` |
 
 The four files without a stated license are git-ignored. They are for local evaluation only and must not be redistributed. `prvsiyan/kaggriculture-frontier-the-soil-remembers-rain` has a byte-identical `main.py` to Melons, and `abhinav0370/cha22-agent` has a byte-identical `main.py` to `tetsutani_demand.py`, so neither is listed separately. Ahmed V38 had no downloadable output. `yhay81/six-day-public-state-fieldbook` ships a Linux-only `agent.so`, so it cannot run on macOS.
 
@@ -72,3 +73,15 @@ Seven agents, seeds 9100–9124, both seats, 50 matches per pair. Each cell is t
 | C95 | 0 | 0 | 0 | 0 | 0 | 0 | — | 0.0 |
 
 Banks among the top six are all within about $2k of each other (95–99k). C95 banks about 74k.
+
+## step1009 and the sale look-ahead variants, 2026-09-30
+
+tetsutani republished on 2026-09-28 (`tetsutani_step1009.py`). Replays of six ladder losses reproduce this build or near variants of it, and it beats the old horizon-48 build 72–82%. The v9 race horizon has no effect on it. Its ready-stock sale look-ahead layers do. Fresh seeds 9500–9529, both seats, 60 matches per cell, win %:
+
+| Row vs column | plain step1009 | horizon-48 build | Seven-Turn Rescue | Ledger V68 (old) | 2965 hybrid (old) |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `_S809_LOOK = 12` (slot A, `main.py`) | 85 | 82 | 73 | 58 | 90 |
+| `_S738_LOOK = 8`, `_S809_LOOK = 8` (slot B) | 80 | 82 | 77 | 62 | 90 |
+| plain step1009 | — | 82 | 73 | 62 | 90 |
+
+Slot B beats slot A 57% head to head. Upstream values are `_S738_LOOK = 4` and `_S809_LOOK = 3`.
